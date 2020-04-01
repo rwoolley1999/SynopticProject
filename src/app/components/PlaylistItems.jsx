@@ -4,13 +4,15 @@ import { Link } from 'react-router-dom';
 import * as mutations from '../store/mutations';
 
 const PlaylistItems = ({
-    playlist, 
-    id, 
-    categories, 
-    comments,
+    id,
+    playlist,
+    categories,
+
     assignPlaylistCategory,
-    assignPlaylistName
-})=>(
+    assignPlaylistName,
+    deletePlaylist
+})=>{
+    return(
     <div>
         <div>
             <input onChange={assignPlaylistName} value={playlist.name}/>
@@ -23,12 +25,17 @@ const PlaylistItems = ({
             </select>
         </div>
         <div>
+        <Link to="/">
+            <button onClick={()=>deletePlaylist(id)} value={playlist.id}>Delete Playlist</button>
+        </Link>
+        </div>
+        <div>
             <Link to="/">
                 <button>Done</button>
             </Link>
         </div>
     </div>
-);
+    )};
 
 
 const mapStateToProps=(state, ownProps)=>{
@@ -51,6 +58,10 @@ const mapDispatchToProps = (dispatch, ownProps)=>{
         },
         assignPlaylistName(e){
             dispatch(mutations.assignPlaylistName(id, e.target.value));
+        },
+        deletePlaylist(id){
+            console.log("deleting playlist", id);
+            dispatch(mutations.deletePlaylist(id));
         }
     }
 }

@@ -1,25 +1,3 @@
-// will have a table displaying the playlists
-//file display
-//at top have add file, save state, load state, and alter categories
-
-// import React, {Component} from 'react';
-// import { Playlists } from './Playlists';
-
-// export class Dashboard extends Component{
-//     render(){
-//         return(
-//             // <div class="topnav">
-//             // <a class="active" href="#home">Home</a>
-//             // <a href="#news">News</a>
-//             // <a href="#contact">Contact</a>
-//             // <a href="#about">About</a>
-//             // </div>
-//             <div>
-//             <Playlists/>
-//             </div>
-//         );
-//     }
-// }
 import React from 'react';
 import { connect } from 'react-redux';
 import { ConnectedPlaylists } from './Playlists';

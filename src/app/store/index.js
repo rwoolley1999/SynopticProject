@@ -4,11 +4,12 @@ import { createLogger } from 'redux-logger';
 import * as mutations from './mutations';
 import createSagaMiddleware from 'redux-saga';
 import * as sagas from './sagas';
-import {loadState, saveState} from '../state/localStorage';
+import {loadState, saveState } from '../state/localStorage';
+// import { saveFile } from '../state/saveFile';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const persistedState = loadState();
+export const persistedState = loadState();
 
 export const store = createStore(
     combineReducers({
@@ -31,6 +32,10 @@ export const store = createStore(
                         return (playlist.id === action.playlistID) ?
                         {...playlist, name: action.name} :
                         playlist;
+                    });
+                case mutations.DELETE_PLAYLIST:
+                    return playlists.filter(playlist=>{
+                        return(playlist.id !== action.playlistID);
                     });
             }
             return playlists;
@@ -57,6 +62,7 @@ export const store = createStore(
 store.subscribe(()=>{
     saveState(store.getState());
 });
+
 
 for (let saga in sagas){
     sagaMiddleware.run(sagas[saga]);
