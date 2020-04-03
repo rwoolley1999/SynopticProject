@@ -4,17 +4,27 @@ import { v4 as uuidv4 } from 'uuid';
 
 export function* playlistCreationSaga(){
     while (true){
-        const {categoryID} = yield take(mutations.REQUEST_PLAYLIST_CREATION);
+        yield take(mutations.REQUEST_PLAYLIST_CREATION);
         const playlistID = uuidv4();
-        yield put(mutations.createPlaylist(playlistID, categoryID))
+        yield put(mutations.createPlaylist(playlistID))
         // console.log("Got categoryID", categoryID);
     }
 };
 
-// export function* addCategorySaga(){
-//     while (true){
-//         const categoryID = uuidv4();
-//         yield put(mutations.addNewCategory(categoryID))
-//         console.log("Got Category ID", categoryID)
-//     }
-// };
+export function* addCategorySaga(){
+    while (true){
+        yield take(mutations.REQUEST_NEW_CATEGORY);
+        const categoryID = uuidv4();
+        yield put(mutations.addNewCategory(categoryID))
+        console.log("Got categoryID", categoryID);
+    }
+};
+
+export function* addMediaFile(){
+    while(true){
+        const {playlistID} = yield take(mutations.REQUEST_ADD_FILE);
+        const mediaFileID = uuidv4();
+        yield put(mutations.addMediaFile(mediaFileID, playlistID));
+        console.log("Got Playlist ID", playlistID);
+    }
+}

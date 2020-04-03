@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import  { requestPlaylistCreation } from '../store/mutations';
+import  { requestPlaylistCreation, createPlaylist } from '../store/mutations';
 import { Link } from 'react-router-dom';
 
-export const Playlists = ({playlists, name, id, createNewPlaylist})=>(
+export const Playlists = ({playlists, name, id, createPlaylist})=>(
     <div>
         <h3>
             {name}
@@ -15,23 +15,23 @@ export const Playlists = ({playlists, name, id, createNewPlaylist})=>(
               </div>
             </Link>
               ))}
-        <button onClick={()=>createNewPlaylist(id)}>Add New Playlist</button>
+        <button onClick={()=>createPlaylist(id)}>Add New Playlist</button>
     </div>
 );
 
 const mapStateToProps=(state, ownProps)=>{
-    let categoryID = ownProps.id;
+    let id = ownProps.id;
     return{
         name:ownProps.name,
-        id:categoryID,
-        playlists:state.playlists.filter(playlist=>playlist.category === categoryID)
+        id:id,
+        playlists:state.playlists
     }
 }
 
 const mapDistpatchToProps = (dispatch, ownProps)=>{
     return{
-        createNewPlaylist(id){
-            console.log("Creating new task", id);
+        createPlaylist(id){
+            console.log("Creating new playlist", id);
             dispatch(requestPlaylistCreation(id));
         }
     }

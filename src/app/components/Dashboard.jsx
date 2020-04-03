@@ -1,23 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { ConnectedPlaylists } from './Playlists';
-// import { ConnectedCategories } from './Categories';
+import { Link } from 'react-router-dom';
+import { ConnectedCategories } from './Categories';
+// import { MediaFiles } from './MediaFiles';
 
-export const Dashboard = ({categories})=>(
+export const Dashboard = ({playlists})=>(
     <div>
+        <Link to={'/categories'}>
+            <div>
+                Edit Categories
+            </div>
+        </Link>
         <h2>Playlists</h2>
-        {categories.map(category=>(
-        <ConnectedPlaylists id={category.id} name={category.name}/>
-        ))}
-        <div>
-            {/* <ConnectedCategories/> */}
-        </div>
+        <ConnectedPlaylists id={playlists.id}/>
     </div>
 );
 
 function mapStateToProps(state){
     return{
-        categories:state.categories
+        playlists:state.playlists
     }
 }
 

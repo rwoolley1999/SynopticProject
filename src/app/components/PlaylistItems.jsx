@@ -2,11 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as mutations from '../store/mutations';
+import { ConnectedMedia } from './MediaFiles';
+// import { ConnectedAddMedia } from './AddMedia';
 
 const PlaylistItems = ({
     id,
     playlist,
     categories,
+    mediaFiles,
 
     assignPlaylistCategory,
     assignPlaylistName,
@@ -17,17 +20,20 @@ const PlaylistItems = ({
         <div>
             <input onChange={assignPlaylistName} value={playlist.name}/>
         </div>
-        <div>
+        {/* <div>
             <select onChange={assignPlaylistCategory} value={playlist.category}>
                 {categories.map(category=>(
                     <option key={category.id} value={category.id}>{category.name}</option>
                 ))}
             </select>
-        </div>
+        </div> */}
         <div>
         <Link to="/">
             <button onClick={()=>deletePlaylist(id)} value={playlist.id}>Delete Playlist</button>
         </Link>
+        </div>
+        <div>
+            <ConnectedMedia/>
         </div>
         <div>
             <Link to="/">
@@ -42,11 +48,13 @@ const mapStateToProps=(state, ownProps)=>{
     let id = ownProps.match.params.id;
     let playlist = state.playlists.find(playlist=>playlist.id === id);
     let categories = state.categories;
+    let mediaFiles = state.mediaFiles;
 
     return{
         id,
         playlist,
-        categories
+        categories,
+        mediaFiles
     }
 };
 
