@@ -33,7 +33,15 @@ const PlaylistItems = ({
         </Link>
         </div>
         <div>
-            <ConnectedMedia/>
+        <div>
+        {mediaFiles.map(mediaFile=>(
+            <Link to={'/mediafiles/'+mediaFile.id} key={mediaFile.id}>
+            <div>
+                {mediaFile.name}
+            </div>
+          </Link>
+        ))}
+        </div>
         </div>
         <div>
             <Link to="/">
@@ -48,7 +56,7 @@ const mapStateToProps=(state, ownProps)=>{
     let id = ownProps.match.params.id;
     let playlist = state.playlists.find(playlist=>playlist.id === id);
     let categories = state.categories;
-    let mediaFiles = state.mediaFiles;
+    let mediaFiles = state.mediaFiles.filter(mediaFile=>mediaFile.playlist === id)
 
     return{
         id,
@@ -61,9 +69,6 @@ const mapStateToProps=(state, ownProps)=>{
 const mapDispatchToProps = (dispatch, ownProps)=>{
     const id = ownProps.match.params.id;
     return{
-        assignPlaylistCategory(e){
-            dispatch(mutations.assignPlaylistCategory(id, e.target.value));
-        },
         assignPlaylistName(e){
             dispatch(mutations.assignPlaylistName(id, e.target.value));
         },

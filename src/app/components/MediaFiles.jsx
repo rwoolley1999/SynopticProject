@@ -1,43 +1,37 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import  { requestFileAddition, addMediaFile } from '../store/mutations';
 import { Link } from 'react-router-dom';
+import  { requestFileAddition } from '../store/mutations';
 
-export const Media = ({mediaFiles, name, id, addMediaFile})=>(
+export const Media = ({ name, id, mediaFiles, addMediaFile })=>(
     <div>
         {mediaFiles.map(mediaFile=>(
-              <div>
-                  {mediaFile.name}
-              </div>
-              ))}
-        <button onClick={()=>addMediaFile(id)}>Add MediaFile</button>
+            <Link to={'/mediafiles/'+mediaFile.id} key={mediaFile.id}>
+            <div>
+                {mediaFile.name}
+            </div>
+          </Link>
+        ))}
+         <button onClick={()=>addMediaFile(id)} >Add Media File</button> 
     </div>
 );
 
-// const mapStateToProps=(state, ownProps)=>{
-//   let id = ownProps.id;
-//   return{
-//       name:ownProps.name,
-//       id:id,
-//       mediaFiles:state.mediaFiles,
-//       playlists:state.playlists
-//   }
-// }
-
-const mapStateToProps = (state, {name, id})=>{
-    return {
-        name:name,
-        mediaFiles: state.mediaFiles.filter(mediaFile=>mediaFile.playlist === id),
-        id
-    };
-};
+const mapStateToProps=(state, ownProps)=>{
+    let id = ownProps.id;
+    return{
+        name:ownProps.name,
+        id:id,
+        mediaFiles : state.mediaFiles
+    }
+}
 
 const mapDistpatchToProps = (dispatch, ownProps)=>{
     return{
         addMediaFile(id){
-            console.log("Creating new mediaFile", id);
+            console.log("Adding new media file", id);
             dispatch(requestFileAddition(id));
         }
     }
 }
+
 export const ConnectedMedia = connect(mapStateToProps, mapDistpatchToProps)(Media);

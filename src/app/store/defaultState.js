@@ -26,9 +26,8 @@ export const defaultState = {
     }],
     mediaFiles:[{
         id:"M1",
-        name:"Ave Maria",
+        name:"Ave Maria.wav",
         playlist:"P1",
-        category:"C1",
-        filePath:"C:/"
+        filePath:"C:/src/server/public/upload/Ave Maria.wav"
     }]
 }

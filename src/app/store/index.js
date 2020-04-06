@@ -59,8 +59,33 @@ export const store = createStore(
                 case mutations.ADD_MEDIA_FILE:
                     return[...mediaFiles, {
                             id: action.mediaFileID,
-                            name: "New Media File"
+                            name: "New Media File",
+                            playlist:action.playlistID
                     }]
+                case mutations.ASSIGN_MEDIA_FILE_NAME:
+                    return mediaFiles.map(mediaFile=>{
+                        return (mediaFile.id === action.mediaFileID) ?
+                            {...mediaFile, name: action.name} :
+                            mediaFile;
+                    });
+                case mutations.ASSIGN_MEDIA_FILE_CATEGORY:
+                    return mediaFiles.map(mediaFile=>{
+                        return (mediaFile.id === action.mediaFileID) ? 
+                            {...mediaFile, category:action.categoryID} : 
+                            mediaFile;
+                    });
+                case mutations.ASSIGN_MEDIA_FILE_PLAYLIST:
+                    return mediaFiles.map(mediaFile=>{
+                        return (mediaFile.id === action.mediaFileID) ? 
+                            {...mediaFile, playlist:action.playlistID} : 
+                            mediaFile;
+                    });
+                case mutations.ADD_MEDIA_FILE_COMMENT:
+                    return mediaFiles.map(mediaFile=>{
+                        return (mediaFile.id === action.mediaFileID) ?
+                            {...mediaFile, comment: action.comment} :
+                            mediaFile;
+                    });
         }
             return mediaFiles;
     },

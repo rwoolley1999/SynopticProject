@@ -27,8 +27,10 @@ import {ConnectedDashboard } from './Dashboard';
 import { history } from '../store/history';
 import { ConnectedNavigation } from './Navigation';
 import { ConnectedPlaylistItems } from './PlaylistItems';
-import { ConnectedCategories } from './Categories'
+import { ConnectedCategories } from './Categories';
 import { ConnectedEditCategories } from './EditCategories';
+import { ConnectedMedia } from './MediaFiles';
+import { ConnectedEditMedia } from './EditMedia';
 
 export const Main  = () =>(
     <Router history={history}>
@@ -39,6 +41,8 @@ export const Main  = () =>(
                 <Route exact path="/playlist/:id" component={({match})=>(<ConnectedPlaylistItems match={match}/>)}/>
                 <Route exact path="/categories" component={ConnectedCategories}/>
                 <Route exact path="/categories/:id" component={({match})=>(<ConnectedEditCategories match={match}/>)}/>
+                <Route exact path="/mediafiles" component={ConnectedMedia}/>
+                <Route exact path="/mediafiles/:id" component={({match})=>(<ConnectedEditMedia match={match}/>)}/>
             </div>
         </Provider>
     </Router>

@@ -7,7 +7,7 @@ export function* playlistCreationSaga(){
         yield take(mutations.REQUEST_PLAYLIST_CREATION);
         const playlistID = uuidv4();
         yield put(mutations.createPlaylist(playlistID))
-        // console.log("Got categoryID", categoryID);
+        console.log("Got playlistID", playlistID);
     }
 };
 
@@ -23,7 +23,7 @@ export function* addCategorySaga(){
 export function* addMediaFile(){
     while(true){
         const {playlistID} = yield take(mutations.REQUEST_ADD_FILE);
-        const mediaFileID = uuidv4();
+        const mediaFileID = "MEDIA"+uuidv4();
         yield put(mutations.addMediaFile(mediaFileID, playlistID));
         console.log("Got Playlist ID", playlistID);
     }
