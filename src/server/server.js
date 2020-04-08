@@ -1,11 +1,17 @@
 const express = require('express');
 const fileUpload = require('express-fileupload');
+import cors from 'cors';
+import bodyParser from 'body-parser';
 
-const app = express();
+let port = process.env.PORT || 7777;
 
-app.use(fileUpload());
+let app = express();
 
-// Upload Endpoint
+app.use(cors(),  
+bodyParser.urlencoded({extended:true}),
+bodyParser.json(), 
+fileUpload());
+
 app.post('/', (req, res) => {
   if (req.files === null) {
     return res.status(400).json({ msg: 'No file uploaded' });
@@ -24,4 +30,4 @@ app.post('/', (req, res) => {
   });
 });
 
-app.listen(2006, () => console.log('Server Started...'));
+app.listen(port, () => console.log('Server Started on', port));

@@ -19,15 +19,11 @@ export const defaultState = {
         name:"1960s",
         id: "P2"
     }],
-    comments:[{
-        id:"CO1",
-        playlist:"P1",
-        content:"This is a comment"
-    }],
     mediaFiles:[{
         id:"M1",
         name:"Ave Maria.wav",
         playlist:"P1",
-        filePath:"C:/src/server/public/upload/Ave Maria.wav"
+        filePath:"C:/src/server/public/upload/Ave Maria.wav",
+        comment:"This is an audio file"
     }]
 }

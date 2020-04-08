@@ -6,7 +6,6 @@ import createSagaMiddleware from 'redux-saga';
 import * as sagas from './sagas';
 import {loadState, saveState } from '../state/localStorage';
 // import { saveFile } from '../state/saveFile';
-// import testData from "../state/state.json" SORT THIS OUT TOMORROW!!!!!!!!!!!!!!!!!!!
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -82,16 +81,19 @@ export const store = createStore(
                     });
                 case mutations.ADD_MEDIA_FILE_COMMENT:
                     return mediaFiles.map(mediaFile=>{
+                        return (mediaFile.id === action.mediaFileID) ? 
+                            {...mediaFile, comment:action.comment} : 
+                            mediaFile;
+                    });
+                case mutations.ASSIGN_MEDIA_FILEPATH:
+                    return mediaFiles.map(mediaFile=>{
                         return (mediaFile.id === action.mediaFileID) ?
-                            {...mediaFile, comment: action.comment} :
+                            {...mediaFile, filePath: action.filePath} :
                             mediaFile;
                     });
         }
             return mediaFiles;
     },
-        comments(comments = defaultState.comments){
-            return comments;
-        }
     }),
     persistedState,
     applyMiddleware(createLogger(), sagaMiddleware)
