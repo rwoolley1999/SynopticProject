@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 const Navigation = () =>(
@@ -14,6 +14,3 @@ const Navigation = () =>(
 
 export const ConnectedNavigation = connect(state=>state)(Navigation);
 
-//add in redux so state constant while application is in use!!!!
-//add in redux stuff to save state whilst application in use
-//do the text file thing to load data when application starts

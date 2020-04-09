@@ -12,7 +12,7 @@ export const Categories = ({ name, id, categories, addNewCategory })=>(
             </div>
           </Link>
         ))}
-         <button onClick={()=>addNewCategory(id)} >Add New Category</button> 
+         <button onClick={()=>addNewCategory(id)} class="button">Add New Category</button> 
     </div>
 );
 

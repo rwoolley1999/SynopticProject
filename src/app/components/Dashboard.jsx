@@ -1,22 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { ConnectedPlaylists } from './Playlists';
+import { ConnectedPlaylists } from './playlists';
 import { Link } from 'react-router-dom';
+import '../styles/components.css';
 
 export const Dashboard = ({playlists})=>(
     <div>
+    <div class="column">
         <Link to={'/categories'}>
-            <div>
-                Edit Categories
+        <div>
+                Categories
             </div>
         </Link>
         <Link to={'/mediafiles'}>
             <div>
-                Add Media File
+                Media Files
             </div>
         </Link>
+    </div>
         <h2>Playlists</h2>
-        <ConnectedPlaylists id={playlists.id}/>
+        <ConnectedPlaylists/>
     </div>
 );
 

@@ -15,7 +15,7 @@ export const Playlists = ({playlists, name, id, createPlaylist})=>(
               </div>
             </Link>
               ))}
-        <button onClick={()=>createPlaylist(id)} >Add New Playlist</button>
+        <button onClick={()=>createPlaylist(id)} class="button">Add New Playlist</button>
     </div>
 );
 

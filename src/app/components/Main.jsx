@@ -1,36 +1,15 @@
-// import React, {Component} from 'react';
-// import { BrowserRouter as Router, Route } from 'react-router-dom';
-// import { Dashboard } from './Dashboard';
-// import { Playlists } from './Playlists';
-// import { Navigation } from './Navigation';
-
-// export class Main extends Component{
-//     render(){
-//         return(
-//         <Router>
-//         <div>
-//             <Navigation/>
-//             <Route exact path='/' component={Dashboard} />
-//             <Route exact path='/playlist/:id' component={Playlists}/>
-//             {/* fix this so it links to list of media files added to playlist and so that it acc gets the playlist id */}
-//         </div>
-//         </Router>
-//         )
-//     }
-// }
-
 import React from 'react';
 import {Router, Route} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from '../store';
-import {ConnectedDashboard } from './Dashboard';
+import {ConnectedDashboard } from './dashboard';
 import { history } from '../store/history';
-import { ConnectedNavigation } from './Navigation';
-import { ConnectedPlaylistItems } from './PlaylistItems';
-import { ConnectedCategories } from './Categories';
-import { ConnectedEditCategories } from './EditCategories';
-import { ConnectedMedia } from './MediaFiles';
-import { ConnectedEditMedia } from './EditMedia';
+import { ConnectedNavigation } from './navigation';
+import { ConnectedPlaylistItems } from './playlist_items';
+import { ConnectedCategories } from './categories';
+import { ConnectedEditCategories } from './edit_categories';
+import { ConnectedMedia } from './media_files';
+import { ConnectedEditMedia } from './edit_media';
 
 export const Main  = () =>(
     <Router history={history}>

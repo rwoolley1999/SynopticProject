@@ -1,10 +1,10 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
-import { defaultState } from './defaultState';
+import { defaultState } from './default_state';
 import { createLogger } from 'redux-logger';
 import * as mutations from './mutations';
 import createSagaMiddleware from 'redux-saga';
 import * as sagas from './sagas';
-import {loadState, saveState } from '../state/localStorage';
+import {loadState, saveState } from '../state/local_storage';
 // import { saveFile } from '../state/saveFile';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -90,6 +90,10 @@ export const store = createStore(
                         return (mediaFile.id === action.mediaFileID) ?
                             {...mediaFile, filePath: action.filePath} :
                             mediaFile;
+                    });
+                case mutations.DELETE_MEDIA_FILE:
+                    return mediaFiles.filter(mediaFile=>{
+                        return(mediaFile.id !== action.mediaFileID);
                     });
         }
             return mediaFiles;

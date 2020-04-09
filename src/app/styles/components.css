@@ -1,0 +1,38 @@
+body {
+    background-color: #282c34;
+    color: white;
+    padding: 40px;
+    font-family: Arial;
+    text-align: center;
+  }
+
+  .button {
+    background-color: white; 
+    border-radius: 4px;
+    color: #282c34;
+    padding: 5px 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    margin: 8px 0;
+  }
+
+  .button:hover {
+    background-color: #4169E1; /* Green */
+    color: white;
+  }
+
+  input {
+    width: 20%;
+    padding: 9px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  /* .column{
+    column-count: 2;
+    column-gap: 0px;
+  } */
+
+  /* FINISH ADDING CSS */

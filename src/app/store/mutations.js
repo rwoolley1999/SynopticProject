@@ -13,6 +13,7 @@ export const ASSIGN_MEDIA_FILE_CATEGORY = "ASSIGN_MEDIA_FILE_CATEGORY";
 export const ASSIGN_MEDIA_FILE_PLAYLIST = "ASSIGN_MEDIA_FILE_PLAYLIST";
 export const ADD_MEDIA_FILE_COMMENT = "ADD_MEDIA_FILE_COMMENT";
 export const ASSIGN_MEDIA_FILEPATH = "ASSIGN_MEDIA_FILEPATH";
+export const DELETE_MEDIA_FILE = "DELETE_MEDIA_FILE";
 
 export const requestPlaylistCreation=()=>({
     type:REQUEST_PLAYLIST_CREATION
@@ -100,4 +101,9 @@ export const assignMediaFilePath=(id, filePath)=>({
     type: ASSIGN_MEDIA_FILEPATH,
     mediaFileID: id,
     filePath
+});
+
+export const deleteMediaFile = (mediaFileID)=>({
+    type: DELETE_MEDIA_FILE,
+    mediaFileID
 });
