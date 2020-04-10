@@ -1,0 +1,36 @@
+{
+    "categories": [
+       {
+          "name": "Classical",
+          "id": "C1"
+       },
+       {
+          "name": "Pop",
+          "id": "C2"
+       },
+       {
+          "name": "Jazz",
+          "id": "C3"
+       }
+    ],
+    "playlists": [
+       {
+          "name": "Bach Playlist",
+          "id": "P1"
+       },
+       {
+          "name": "1960s",
+          "id": "P2"
+       }
+    ],
+    "mediaFiles": [
+       {
+          "id": "M1",
+          "name": "file_example_1MG.wav",
+          "playlist": "P1",
+          "filePath": "C:/SynopticProject/src/server/public/uploads/file_example_1MG.wav",
+          "comment": "This is an audio file",
+          "imageURL": "https://i.pinimg.com/originals/d1/43/6c/d1436c2a87bce3ff3c7db472aad7d413.jpg"
+       }
+    ]
+ }

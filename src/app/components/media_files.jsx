@@ -1,14 +1,17 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import  { requestFileAddition } from '../store/mutations';
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import  { requestFileAddition } from "../store/mutations";
 
 export const Media = ({ name, id, mediaFiles, addMediaFile })=>{
     return(
     <div>
+        <div>
+        <h2> Media Files</h2>
+        </div>
         {mediaFiles.map(mediaFile=>(
-            <Link to={'/mediafiles/'+mediaFile.id} key={mediaFile.id}>
-            <div>
+            <Link to={"/mediafiles/"+mediaFile.id} key={mediaFile.id}>
+            <div class="link">
                 {
                     mediaFile.name
                 }

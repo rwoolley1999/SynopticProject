@@ -1,3 +1,5 @@
+// initial state of the media organiser, with example inputs
+
 export const defaultState = {
     categories:[{
         name:"Classical",
@@ -24,6 +26,7 @@ export const defaultState = {
         name:"Ave Maria.wav",
         playlist:"P1",
         filePath:"C:/src/server/public/upload/Ave Maria.wav",
-        comment:"This is an audio file"
+        comment:"This is an audio file",
+        imageURL:"https://i.pinimg.com/originals/d1/43/6c/d1436c2a87bce3ff3c7db472aad7d413.jpg"
     }]
 }

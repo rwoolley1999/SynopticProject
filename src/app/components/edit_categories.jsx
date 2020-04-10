@@ -1,4 +1,3 @@
-//CONVERT THIS INTO A MODAL IF HAVE TIME
 import React from 'react';
 import { connect } from 'react-redux';
 import { Router, Link } from 'react-router-dom';
@@ -12,48 +11,47 @@ export const EditCategories = ({
 
     assignCategoryName,
     deleteCategory
-})=>{
-    return(
-    <div>
+}) => {
+    return (
         <div>
-            <input onChange={assignCategoryName} value={category.name} class="input"/>
+            <div>
+                {/* Input box to assign catefory name */}
+                <input onChange={assignCategoryName} value={category.name} class="input" />
+            </div>
+            <div>
+                <Router history={history}>
+                    <Link to="/">
+                        <button class="button">Done</button>
+                    </Link>
+                    <br></br>
+                    <Link to="/">
+                        <button onClick={() => deleteCategory(id)} class="button">Delete Category</button>
+                    </Link>
+                </Router>
+            </div>
         </div>
-        <div>
-        <Router history={history}>
-        <Link to="/">
-            <button onClick={()=>deleteCategory(id)} class="button">Delete Category</button>
-        </Link>
-            <Link to="/">
-                <button class="button">Done</button>
-            </Link>
-        </Router>
-        </div>
-    </div>
-    )};
-    
+    )
+};
 
 
-const mapStateToProps=(state, ownProps)=>{
+
+const mapStateToProps = (state, ownProps) => {
     let id = ownProps.match.params.id;
-    // let id = ownProps.id;
-    let category = state.categories.find(category=>category.id === id); 
-    // let category = state.categories;
-    //CHANGE BACK TO COMMENTED STUFF ONCE FINSIH TESTING 
-
-    return{
+    let category = state.categories.find(category => category.id === id);
+    return {
         id,
         category
     }
 };
 
-const mapDispatchToProps = (dispatch, ownProps)=>{
+const mapDispatchToProps = (dispatch, ownProps) => {
     const id = ownProps.match.params.id;
     // const id = ownProps.id;
-    return{
-        assignCategoryName(e){
+    return {
+        assignCategoryName(e) {
             dispatch(mutations.assignCategoryName(id, e.target.value));
         },
-        deleteCategory(id){
+        deleteCategory(id) {
             console.log("deleting category", id);
             dispatch(mutations.deleteCategory(id));
         }

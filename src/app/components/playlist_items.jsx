@@ -1,7 +1,7 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import * as mutations from '../store/mutations';
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import * as mutations from "../store/mutations";
 
 const PlaylistItems = ({
     id,
@@ -16,28 +16,29 @@ const PlaylistItems = ({
     return(
     <div>
         <div>
+            <h6>Playlist Name:</h6>
             <input onChange={assignPlaylistName} value={playlist.name}/>
         </div>
         <div>
-        <Link to="/">
-            <button onClick={()=>deletePlaylist(id)} value={playlist.id} class="button">Delete Playlist</button>
-        </Link>
-        </div>
-        <div>
-        <div>
         {mediaFiles.map(mediaFile=>(
-            <Link to={'/mediafiles/'+mediaFile.id} key={mediaFile.id}>
-            <div>
+            <Link to={"/mediafiles/"+mediaFile.id} key={mediaFile.id}>
+            <div class="link">
                 {mediaFile.name}
             </div>
           </Link>
         ))}
         </div>
-        </div>
         <div>
             <Link to="/">
                 <button class="button">Done</button>
             </Link>
+        </div>
+        <div>
+        <Link to="/">
+            <button onClick={()=>deletePlaylist(id)} value={playlist.id} class="deleteButton">Delete Playlist</button>
+        </Link>
+        </div>
+        <div>
         </div>
     </div>
     )};

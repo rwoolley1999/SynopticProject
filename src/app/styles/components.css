@@ -1,5 +1,5 @@
 body {
-    background-color: #282c34;
+    background-color: #282C34;
     color: white;
     padding: 40px;
     font-family: Arial;
@@ -9,7 +9,7 @@ body {
   .button {
     background-color: white; 
     border-radius: 4px;
-    color: #282c34;
+    color: #282C34;
     padding: 5px 10px;
     text-align: center;
     display: inline-block;
@@ -23,16 +23,57 @@ body {
     color: white;
   }
 
+  .deleteButton {
+    background-color: white; 
+    border-radius: 4px;
+    color: #282C34;
+    padding: 5px 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    margin: 8px 0;
+  }
+
+  .deleteButton:hover {
+    background-color: #FF0000;
+    color: white;
+  }
+
   input {
     width: 20%;
     padding: 9px 10px;
-    margin: 8px 0;
+    margin: 8px 8px;
     box-sizing: border-box;
+    border-radius: 4px;
   }
 
-  /* .column{
-    column-count: 2;
-    column-gap: 0px;
-  } */
+  .link {
+    color: white;
+  }
 
-  /* FINISH ADDING CSS */
+  .custom-file-input {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .custom-file {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .uploadButton {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  img{
+  border: 1px solid white;
+  border-radius: 4px;
+  margin: auto;
+  padding: 1px;
+  width: 5%;
+  }
