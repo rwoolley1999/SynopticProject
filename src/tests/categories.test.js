@@ -38,11 +38,7 @@ describe("ConnectedCategories Unit Tests", () => {
         expect(store.dispatch).toHaveBeenCalledTimes(1);
     });
 
-});
-
-describe("Categories Integration Tests", () => {
-
-    it("should render a placeholder when no dog image is fetched", () => {
+    it("should render Categories title text", () => {
         let wrapper = mount(<Provider store={store}><ConnectedCategories /></Provider>);
         expect(wrapper.find("categories").text()).toEqual(name);
     });
