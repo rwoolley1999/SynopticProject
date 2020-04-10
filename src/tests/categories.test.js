@@ -38,7 +38,7 @@ describe("ConnectedCategories Unit Tests", () => {
         expect(store.dispatch).toHaveBeenCalledTimes(1);
     });
 
-    it("should render Categories title text", () => {
+    it("should render category names", () => {
         let wrapper = mount(<Provider store={store}><ConnectedCategories /></Provider>);
         expect(wrapper.find("categories").text()).toEqual(name);
     });
