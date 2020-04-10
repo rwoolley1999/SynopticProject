@@ -10,7 +10,7 @@ import { Provider } from "react-redux";
 import * as store from "../app/store";
 
 
-describe("ConnectedPlaylistItems Unit Tests", () => {
+describe("ConnectedCategories Unit Tests", () => {
 
     const mockStore = configureStore([]);
     let store;
